@@ -1,7 +1,13 @@
+PRAGMA synchronous = OFF;
+PRAGMA journal_mode = MEMORY;
+PRAGMA temp_store = MEMORY;
+
 DROP TABLE IF EXISTS movies;
 DROP TABLE IF EXISTS ratings;
 DROP TABLE IF EXISTS tags;
 DROP TABLE IF EXISTS users;
+
+BEGIN TRANSACTION;
 
 CREATE TABLE movies (
     id INTEGER PRIMARY KEY,
@@ -23430,3 +23436,5 @@ INSERT INTO users (id, name, email, gender, register_date, occupation) VALUES (9
 INSERT INTO users (id, name, email, gender, register_date, occupation) VALUES (941, 'Marques Weissnat', 'tianna87@gmail.com', 'male', '2011-06-23', 'student');
 INSERT INTO users (id, name, email, gender, register_date, occupation) VALUES (942, 'Isabel Koelpin', 'rachael72@howell.com', 'female', '2005-11-14', 'librarian');
 INSERT INTO users (id, name, email, gender, register_date, occupation) VALUES (943, 'Eda Reynolds', 'sebert@hessel.com', 'female', '2021-01-08', 'student');
+
+COMMIT;
